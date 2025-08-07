@@ -1,28 +1,21 @@
 import React from 'react'
 import Demo from './Demo'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import About from './pages/About'
+import Notfound from './Notfound'
+
 function App() {
-  let mark =60
-
- 
-
   return (
     <div>
-      
-       
-       
-    {mark}
-    { (()=>{
-
-      if(mark>80 && mark<100){
-        return <h1>good</h1>
-      }else if(mark>60 && mark<80){
-        return <h1>fair</h1>
-      }else{
-        return <h1>F</h1>
-      }
-    })()}
     
-    </div>
+     <BrowserRouter>
+     <Routes>
+      <Route path='/' element={<Demo/>}/>
+      <Route path='/about' element={<About/>}/>
+      <Route path='*' element={<Notfound/>}/>
+     </Routes>
+     </BrowserRouter>
+     </div>
   )
 }
 

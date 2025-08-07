@@ -1,0 +1,42 @@
+ 
+ 
+ {mark}
+    { (()=>{
+
+      if(mark>80 && mark<100){
+        return <h1>good</h1>
+      }else if(mark>60 && mark<80){
+        return <h1>fair</h1>
+      }else{
+        return <h1>F</h1>
+      }
+    })()}
+
+switch case conditional
+    import React from 'react'
+
+function App() {
+  const status = true
+
+   switch(status){
+    case true:
+      return (
+    <div>
+        <h1>logout</h1> 
+    </div>
+  )
+   case false:
+    return (
+      <div>
+        <h1>login</h1>
+      </div>
+    )
+    default :
+    return null
+
+   }
+  
+}
+
+export default App
+
