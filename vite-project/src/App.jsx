@@ -1,26 +1,34 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 
 function App() {
-  let firstname =useRef()
-  let lastname = useRef()
-  let data = useRef()
-  
- 
-  
- function HandleSubmit(){  
- 
-  data.current.innerHTML = `${firstname.current.value} ${lastname.current.value} `
-    
- }
- 
+  const [list, setlist] = useState([]);
+  const [iterm ,setiterm] = useState('')
+  const AddTodo =()=>{
+   list.push(iterm)
+   setlist([...list])
+   
+  }
   return (
     <div>
+      <span>{list.length}</span>
+     <input type="text" value={iterm} onChange={(e)=>setiterm(e.target.value)} />
+     <button onClick={AddTodo}>Add</button>
+     <table>
+      <tbody>
+        {
+          list.length !==0? list.map((itermlist,i)=>{
+         return(
+            <tr key={i}>
+            <td>{itermlist}{i}</td>
+            <td><button>remove</button></td> 
+           </tr>
+         )
+          }):(null)
 
-       <input type="text" ref={firstname} />
-       <input type="text" ref={lastname} />
-       <span ref={data}></span>
-      <button onClick={HandleSubmit}>Click</button>
-
+        }
+      
+      </tbody>
+     </table>
     </div>
   )
 }
