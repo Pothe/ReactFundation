@@ -10,10 +10,10 @@ function App() {
       
    
     ))
-    //  console.log("first name"+FormObject.Fname)
-    // console.log("Last name"+FormObject.Lname)
-    //  console.log("Last name"+FormObject.city)
-    // console.log("Last name"+FormObject.Gender)
+    console.log("first name"+FormObject.Fname)
+    console.log("Last name"+FormObject.Lname)
+    console.log("Last name"+FormObject.city)
+    console.log("Last name"+FormObject.Gender)
      console.log("Last name"+FormObject.city)
   }
   return (
@@ -23,29 +23,27 @@ function App() {
         <input value={FormObject.Lname} type="text" placeholder='last name' onChange={(e)=>{InputOnchange({property:'Lname',value:e.target.value})}} />
         <select value={FormObject.city} onChange={(e)=>{InputOnchange({property:'city',value:e.target.value})}} >
           <option value="">Choose City</option>
-          <option value="phnom penh">phnom penh</option>
+          <option value="pp">phnom penh</option>
           <option value="shv">Sihanoukville</option>
           <option value="kampot">Kampot</option>
           
         </select>
           <input
   type="radio"
-  name="gender"
-  value="Male"
-  
+  name="Gender"
+  value="Male"  
   checked={FormObject.Gender === "Male"}
-  onChange={(e) =>
-    InputOnchange({ property: "Gender", value: e.target.value })
+  onChange={(e) =>{InputOnchange({ property: "Gender", value: e.target.value })}
   }
 /> Female
 
         <input
   type="radio"
-  name="gender"
+  name="Gender"
   value="Female"
   checked={FormObject.Gender === "Female"}
   onChange={(e) =>
-    InputOnchange({ property: "Gender", value: e.target.value })
+    {InputOnchange({ property: "Gender", value: e.target.value })}
   }
 /> Female
 
