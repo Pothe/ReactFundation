@@ -1,29 +1,27 @@
-import React from 'react'
-import Demo from './Demo'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import About from './pages/About'
-import Contact from './components/Contact'
-import Navigation from './components/Navigation'
-import Notfound from './Notfound'
-import Home from './pages/Home'
-
-
+import React, { useRef } from 'react'
 
 function App() {
+  let firstname =useRef()
+  let lastname = useRef()
+  let data = useRef()
+  
+ 
+  
+ function HandleSubmit(){  
+ 
+  data.current.innerHTML = `${firstname.current.value} ${lastname.current.value} `
+    
+ }
+ 
   return (
     <div>
-    
-     <BrowserRouter>
-     <Navigation/>
-     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/about' element={<About/>}/>
 
-      <Route path='/contact' element={<Contact/>}/>
-        <Route path='*' element={<Notfound/>}/>
-     </Routes>
-     </BrowserRouter>
-     </div>
+       <input type="text" ref={firstname} />
+       <input type="text" ref={lastname} />
+       <span ref={data}></span>
+      <button onClick={HandleSubmit}>Click</button>
+
+    </div>
   )
 }
 
