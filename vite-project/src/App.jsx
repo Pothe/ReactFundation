@@ -1,44 +1,23 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 
 function App() {
-  const [list,setlist] =useState([])
-  const [iterm,setiterm] = useState("")
-  const input = useRef()
-  const Addlist =()=>{
-    list.push(iterm)
-    setlist([...list])
-    setiterm('')
-    input.current.focus()
-
-    
-  }
-  const HandleRemove=(i)=>{
-    list.splice(i,1)
-    setlist([...list])
-    console.log(list)
-  }
   return (
     <div>
-    <div>{list.length}</div>
-    <input ref={input} type="text" value={iterm} onChange={(e)=>setiterm(e.target.value)} />
-    <button onClick={Addlist}>Add List</button>
-    <table>
-      <tbody>
-        {
-          list.length!==0? list.map((itermlist,i)=>{
-            return(
-          <tr key={i}>
-            <td>{itermlist}</td>
-            <td><button onClick={()=>HandleRemove(i)}>Remove</button></td>
-          </tr>
-            )
-          }):(null)
-
-        }
-        
-      </tbody>
-    </table>
-    
+      <form >
+        <input type="text" placeholder='First name' />
+        <input type="text" placeholder='last name' />
+        <select >
+          <option value="unknow">Choose City</option>
+          <option value="phnom penh">phnom penh</option>
+          <option value="shv">Sihanoukville</option>
+          <option value="kampot">Kampot</option>
+          
+        </select>
+           <input type="radio" name="Female" id="" />Male
+        <input type="radio" name="Female" id="" />Female
+        <br></br>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   )
 }
