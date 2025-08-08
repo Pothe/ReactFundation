@@ -12,6 +12,11 @@ function App() {
 
     
   }
+  const HandleRemove=(i)=>{
+    list.splice(i,1)
+    setlist([...list])
+    console.log(list)
+  }
   return (
     <div>
     <div>{list.length}</div>
@@ -24,7 +29,7 @@ function App() {
             return(
           <tr key={i}>
             <td>{itermlist}</td>
-            <td><button>Remove</button></td>
+            <td><button onClick={()=>HandleRemove(i)}>Remove</button></td>
           </tr>
             )
           }):(null)
